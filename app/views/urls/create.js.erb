@@ -1,7 +1,4 @@
 <%if @response[:status]==true %>
 $('.response').show();
 $('.short_url').html("<%= @response[:data].short_url %>");
-
-<% else %>
-
 <% end %>
