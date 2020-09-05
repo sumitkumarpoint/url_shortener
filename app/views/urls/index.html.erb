@@ -1,0 +1,10 @@
+<h2>Analytics</h2>
+<%if @urls.present? %>
+<% @urls.each do |url| %>
+------------------------------------------------------------------------------
+    <h3><%= url.original_url %></h3>
+    <h4><%= request.protocol %><%= request.host_with_port %>/<%= url.short_url %></h4>
+    <div>Total Clicks: <%= url.stats.length %></div>
+    <div>Top Countries: <%= top_countries(url.stats)%></div>
+<%end %>
+<%end %>

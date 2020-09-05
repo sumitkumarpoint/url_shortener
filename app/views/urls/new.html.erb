@@ -1,0 +1,12 @@
+<%= javascript_pack_tag 'url' %>
+<h2>Welcome to <%= request.host_with_port %></h2>
+<p>Please enter URL here</p>
+<%= form_for(Url.new,method: :post,remote:true) do |f|%>
+<%= f.text_field :original_url %>
+<%= f.submit :SHORTEN %>
+  <div style="color: red;"><label id="url_original_url-error" class="error" for="url_original_url"></label></div>
+<%end %>
+<div class="response" style="display: none;">
+  <div>Here's your short URL!</div>
+  <h3><%= request.protocol %><%= request.host_with_port %>/<span class="short_url"></span></h3>
+</div>
